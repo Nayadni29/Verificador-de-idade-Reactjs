@@ -9,6 +9,7 @@ const App = () => {
   const handleClick = () => {
     <Idade />
     
+    
   }
 
   return (
