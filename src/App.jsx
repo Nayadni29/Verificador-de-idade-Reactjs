@@ -17,7 +17,6 @@ const App = () => {
     const dataAtual = new Date();
     const anoAtual = dataAtual.getFullYear();
     const mesAtual = dataAtual.getMonth() + 1;
-    const diaAtual = dataAtual.getDay();
     const anoNascParts = dataNasc.split('-');
 
     const diaNasc = anoNascParts[2];
@@ -52,32 +51,45 @@ const App = () => {
   }
   const handleClick = () => {
 
-  if(idade >= 0 && idade < 4){
-      setImageDestaque( genero?
-        'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-bebe-f.png'
-        :'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-bebe-m.png');
-        setColor( genero?'#f1e257':'#ad967b');
-  }else if(idade < 11){
-      //Criança
-      setImageDestaque(  'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-crianca-m.png');
-      setColor( genero?'#f1e257':'#ad967b');
-  }else if(idade < 21){
-      //Jovem
-      setImageDestaque('https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-jovem-m.png');
-      setColor('#b0b0ae');
-  }else if(idade < 40){
-      //Jovem Adulto
-      setImageDestaque( 'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-jovemadulto-m.png');
-      setColor('#e2dcde')
-  }else if(idade < 60){
-      //Adulto
-      setImageDestaque( 'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-adulto-m.png');
-      setColor('#85766b')
-  }else{
-      //Idoso
-      setImageDestaque('https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-idoso-m.png');
-      setColor('#adb6b5')
-  }
+    if(idade < 0 || idade == null){
+       alert('[ERRO] Verifique os dados e tente novamente!');
+    }else if(idade >= 0 && idade < 4){
+        //Bebê
+        setImageDestaque( genero?
+          'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-bebe-f.png'
+          :'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-bebe-m.png');
+          setColor( genero?'#f1e257':'#ad967b');
+    }else if(idade < 11){
+        //Criança
+        setImageDestaque( genero?
+          'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-crianca-f.png'
+          :'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-crianca-m.png');
+        setColor( genero?'#e9b9ab':'#ad967b');
+    }else if(idade < 21){
+        //Jovem
+        setImageDestaque( genero?
+          'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-jovem-f.png'
+          :'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-jovem-m.png');
+        setColor( genero?'#7cb0b4':'#b0b0ae');
+    }else if(idade < 40){
+        //Jovem Adulto
+        setImageDestaque( genero?
+          'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-jovemadulto-f.png'
+          :'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-jovemadulto-m.png');
+        setColor( genero?'#c7ab68':'#e2dcde');
+    }else if(idade < 60){
+        //Adulto
+        setImageDestaque( genero?
+          'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-adulto-f.png'
+          :'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-adulto-m.png');
+        setColor( genero?'#ef5620':'#85766b');
+    }else{
+        //Idoso
+        setImageDestaque( genero?
+          'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-idoso-f.png'
+          :'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-idoso-m.png');
+        setColor( genero?'#98a32a':'#adb6b5');
+    }
 
   }
 
@@ -92,10 +104,10 @@ const App = () => {
         <div>Sexo:
           <div onChange={handleCheckGenero}>
             
-          <input type="radio"  name="radsex" id="mas"  value="0"></input>
-            <label htmlFor="mas">Masculino</label>
-          <input type="radio"  name="radsex" id="fem" value="1"></input>
-            <label htmlFor="fem">Feminino</label>
+            <input type="radio"  name="radsex" id="mas" value="0"></input>
+              <label htmlFor="mas">Masculino</label>
+            <input type="radio"  name="radsex" id="fem" value="1"></input>
+              <label htmlFor="fem">Feminino</label>
           </div>
         </div>
         <Button onClick={handleClick}>Verificar</Button>
@@ -103,10 +115,10 @@ const App = () => {
         <div id="res">
             Preencha os dados acima para ver o resultado!
             <br/>
-            {idade}<br/>
-            {valueIdade}<br/>
-            {genero}
-            <Avatar  url={imageDestaque} className={'dasdas'} />
+            Idade: {idade}<br/>
+            Data de Nascimento: {valueIdade}<br/>
+            Gênero: {genero}
+            <Avatar url={imageDestaque} className={'dasdas'} />
         </div>
       </div>
       <div>
