@@ -12,6 +12,7 @@ const App = () => {
   const [genero, setGenero] = React.useState(null);
   const [color, setColor] = React.useState('#ccc');
   const [imageDestaque, setImageDestaque] = React.useState(null);
+  const [] = React.useState('Preencha os dados acima para ver o resultado!');
 
   const calculaIdade = (dataNasc) => {
     const dataAtual = new Date();
@@ -59,6 +60,7 @@ const App = () => {
           'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-bebe-f.png'
           :'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-bebe-m.png');
           setColor( genero?'#f1e257':'#ad967b');
+          <p>`Detectamos ${genero?'Mulher':'Homem'} de ${idade} anos.`</p>
     }else if(idade < 11){
         //Criança
         setImageDestaque( genero?
@@ -115,9 +117,7 @@ const App = () => {
         <div id="res">
             Preencha os dados acima para ver o resultado!
             <br/>
-            Idade: {idade}<br/>
-            Data de Nascimento: {valueIdade}<br/>
-            Gênero: {genero}
+            Detectamos <u>{genero?'mulher':'homem'}</u> com <strong>{idade} anos.</strong>
             <Avatar url={imageDestaque} className={'dasdas'} />
         </div>
       </div>
