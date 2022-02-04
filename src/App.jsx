@@ -12,7 +12,6 @@ const App = () => {
   const [genero, setGenero] = React.useState(null);
   const [color, setColor] = React.useState('#ccc');
   const [imageDestaque, setImageDestaque] = React.useState(null);
-  const [] = React.useState('Preencha os dados acima para ver o resultado!');
 
   const calculaIdade = (dataNasc) => {
     const dataAtual = new Date();
@@ -53,14 +52,13 @@ const App = () => {
   const handleClick = () => {
 
     if(idade < 0 || idade == null){
-       alert('[ERRO] Verifique os dados e tente novamente!');
+      alert('[ERRO] Verifique os dados e tente novamente!');
     }else if(idade >= 0 && idade < 4){
         //Bebê
         setImageDestaque( genero?
           'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-bebe-f.png'
           :'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-bebe-m.png');
           setColor( genero?'#f1e257':'#ad967b');
-          <p>`Detectamos ${genero?'Mulher':'Homem'} de ${idade} anos.`</p>
     }else if(idade < 11){
         //Criança
         setImageDestaque( genero?
@@ -105,19 +103,17 @@ const App = () => {
         </p>
         <div>Sexo:
           <div onChange={handleCheckGenero}>
-            
             <input type="radio"  name="radsex" id="mas" value="0"></input>
-              <label htmlFor="mas">Masculino</label>
+            <label htmlFor="mas">Masculino</label>
             <input type="radio"  name="radsex" id="fem" value="1"></input>
-              <label htmlFor="fem">Feminino</label>
+            <label htmlFor="fem">Feminino</label>
           </div>
         </div>
         <Button onClick={handleClick}>Verificar</Button>
 
         <div id="res">
             Preencha os dados acima para ver o resultado!
-            <br/>
-            Detectamos <u>{genero?'mulher':'homem'}</u> com <strong>{idade} anos.</strong>
+            <p>Detectamos <u>{genero?'mulher':'homem'}</u> com <strong>{idade} anos.</strong></p>
             <Avatar url={imageDestaque} className={'dasdas'} />
         </div>
       </div>
