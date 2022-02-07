@@ -4,7 +4,6 @@ import Background  from './components/background'
 import Avatar from './components/avatar';
 import './App.css';
 
-
 const App = () => {
  
   const [valueIdade, setValueIdade] = React.useState(null);
@@ -12,6 +11,8 @@ const App = () => {
   const [genero, setGenero] = React.useState(null);
   const [color, setColor] = React.useState('#ccc');
   const [imageDestaque, setImageDestaque] = React.useState(null);
+  const [showResult, setShowResult] = React.useState(false);
+  const [erros, setErros] = React.useState(false);
 
   const calculaIdade = (dataNasc) => {
     const dataAtual = new Date();
@@ -44,15 +45,20 @@ const App = () => {
 
   const handleChangeDataNasc = (e) => {
     setValueIdade(e.target.value)
+    setShowResult(false);
+
     setIdade(calculaIdade(e.target.value));
   }
   const handleCheckGenero = (e) => {
+    setShowResult(false);
     setGenero(parseInt(e.target.value))
   }
   const handleClick = () => {
-
+    setShowResult(true);
+    setErros(true);
     if(idade < 0 || idade == null){
       alert('[ERRO] Verifique os dados e tente novamente!');
+      setErros(false);
     }else if(idade >= 0 && idade < 4){
         //Bebê
         setImageDestaque( genero?
@@ -93,6 +99,18 @@ const App = () => {
 
   }
 
+  const renderResult = () => {
+    if(showResult && erros){
+      return (<div>
+        <p>Detectamos <u>{genero?'mulher':'homem'}</u> com <strong>{idade} anos.</strong></p>
+            <Avatar url={imageDestaque} className={'dasdas'} /> 
+            </div>
+      );
+    }else{
+      return   <>Preencha os dados acima para ver o resultado! </>
+    }
+  }
+
   return (
     <Background color={color}>
       
@@ -112,9 +130,7 @@ const App = () => {
         <Button onClick={handleClick}>Verificar</Button>
 
         <div id="res">
-            Preencha os dados acima para ver o resultado!
-            <p>Detectamos <u>{genero?'mulher':'homem'}</u> com <strong>{idade} anos.</strong></p>
-            <Avatar url={imageDestaque} className={'dasdas'} />
+          {renderResult()}
         </div>
       </div>
       <div>
