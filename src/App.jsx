@@ -2,6 +2,7 @@ import React from 'react';
 import Button from './components/Button';
 import Background  from './components/background'
 import Avatar from './components/avatar';
+import { Title, Signature } from './styles';
 import './App.css';
 
 const App = () => {
@@ -56,6 +57,7 @@ const App = () => {
   const handleClick = () => {
     setShowResult(true);
     setErros(true);
+
     if(idade < 0 || idade == null){
       alert('[ERRO] Verifique os dados e tente novamente!');
       setErros(false);
@@ -96,7 +98,6 @@ const App = () => {
           :'https://raw.githubusercontent.com/Nayadni29/verificador-de-idade/master/foto-idoso-m.png');
         setColor( genero?'#98a32a':'#adb6b5');
     }
-
   }
 
   const renderResult = () => {
@@ -114,7 +115,9 @@ const App = () => {
   return (
     <Background color={color}>
       
-      <div className="title"><h1>Verificador de Idade</h1></div>
+      <div>
+        <Title>Verificador de Idade</Title>
+      </div>
       <div className="container">
         <p>Data de Nascimento:
           <input id="data" type="date" onChange={handleChangeDataNasc} name="txtdat" id="txtdat" min="01-01-0001" required></input>          
@@ -134,7 +137,7 @@ const App = () => {
         </div>
       </div>
       <div>
-        <p className='assinatura'>&copy; NayadniMarganelli</p>
+        <Signature>&copy; NayadniMarganelli</Signature>
       </div>
 
     </Background>
