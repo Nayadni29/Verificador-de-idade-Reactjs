@@ -120,7 +120,7 @@ const App = () => {
       </div>
       <Container>
         <p>Data de Nascimento:
-          <input id="data" type="date" onChange={handleChangeDataNasc} name="txtdat" id="txtdat" min="01-01-0001" required></input>          
+          <input id="data" type="date" onChange={handleChangeDataNasc} name="txtdat" min="01-01-0001" required></input>          
         </p>
         <div>Sexo:
           <div onChange={handleCheckGenero}>

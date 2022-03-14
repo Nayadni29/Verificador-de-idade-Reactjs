@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Background = ({color,...props}) => {
     return (
         <div className="background" style={{
