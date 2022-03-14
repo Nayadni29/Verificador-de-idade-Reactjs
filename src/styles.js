@@ -15,3 +15,19 @@ export const Signature = styled(Title)`
     font-size: 15px;
     font-weight: 1;
 `;
+
+export const Container = styled.h1`
+    background: white;
+    width: 500px;
+    margin: auto;
+    overflow: auto;
+    border: 2px solid white;
+    padding: 15px;
+    border-radius: 10px;
+    font: normal 15pt Arial;
+    box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.301);
+
+    input {
+        margin-left: 10px;
+    }
+`;

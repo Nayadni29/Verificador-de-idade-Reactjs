@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './components/Button';
 import Background  from './components/background'
 import Avatar from './components/avatar';
-import { Title, Signature } from './styles';
+import { Title, Signature, Container } from './styles';
 import './App.css';
 
 const App = () => {
@@ -118,7 +118,7 @@ const App = () => {
       <div>
         <Title>Verificador de Idade</Title>
       </div>
-      <div className="container">
+      <Container>
         <p>Data de Nascimento:
           <input id="data" type="date" onChange={handleChangeDataNasc} name="txtdat" id="txtdat" min="01-01-0001" required></input>          
         </p>
@@ -135,7 +135,7 @@ const App = () => {
         <div id="res">
           {renderResult()}
         </div>
-      </div>
+      </Container>
       <div>
         <Signature>&copy; NayadniMarganelli</Signature>
       </div>
