@@ -30,4 +30,14 @@ export const Container = styled.h1`
     input {
         margin-left: 10px;
     }
+
+    button {
+        display: flex;
+        justify-content: center;
+        margin: 20px auto;
+        width: 120px;
+        height: 30px;
+        align-items: center;
+        transition: 0.3s;
+    }
 `;

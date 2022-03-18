@@ -3,7 +3,6 @@ import Button from './components/Button';
 import Background  from './components/background'
 import Avatar from './components/avatar';
 import { Title, Signature, Container } from './styles';
-import './App.css';
 
 const App = () => {
  
@@ -108,7 +107,7 @@ const App = () => {
             </div>
       );
     }else{
-      return   <>Preencha os dados acima para ver o resultado! </>
+      return   <>Preencha os dados acima para obter o resultado! </>
     }
   }
 
@@ -122,14 +121,14 @@ const App = () => {
         <p>Data de Nascimento:
           <input id="data" type="date" onChange={handleChangeDataNasc} name="txtdat" min="01-01-0001" required></input>          
         </p>
-        <div>Sexo:
+        <p>Sexo:
           <div onChange={handleCheckGenero}>
-            <input type="radio"  name="radsex" id="mas" value="0"></input>
+            <input type="radio" name="radsex" id="mas" value="0"></input>
             <label htmlFor="mas">Masculino</label>
-            <input type="radio"  name="radsex" id="fem" value="1"></input>
+            <input type="radio" name="radsex" id="fem" value="1"></input>
             <label htmlFor="fem">Feminino</label>
           </div>
-        </div>
+        </p>
         <Button onClick={handleClick}>Verificar</Button>
 
         <div id="res">
